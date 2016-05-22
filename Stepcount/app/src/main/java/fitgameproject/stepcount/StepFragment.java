@@ -21,8 +21,9 @@ public class StepFragment extends Fragment implements SensorEventListener {
     private SensorManager sensormanager;//the sensor manager
     private TextView tCount;//the total count
     private TextView dCount;//the daily count
+    private TextView score;
     boolean activityRunning;//is the activity running?
-    int dSteps = 0;//daily steps
+    int dSteps = 67;//daily steps
 
 
 
@@ -54,6 +55,7 @@ public class StepFragment extends Fragment implements SensorEventListener {
         sensormanager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);//ui stuff
         kiloms = (TextView) view.findViewById(R.id.kiloms);
         calories = (TextView) view.findViewById(R.id.calories);
+        score = (TextView) view.findViewById(R.id.score);
         return view;
     }
 
@@ -104,6 +106,7 @@ public class StepFragment extends Fragment implements SensorEventListener {
             cals = dSteps / 20;
             kiloms.setText(String.format("%.2f", km));
             calories.setText(cals + "");
+            score.setText(dSteps/2 + "");
     }
 
     @Override
